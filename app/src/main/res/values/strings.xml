@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Calculation</string>
+    <string name="title_message">Calculation Test</string>
+    <string name="title_image_info" translatable="false">title image</string>
+    <string name="title_button_message">Enter</string>
+    <string name="high_score_message">High Score: %d</string>
+    <string name="bt0" translatable="false">0</string>
+    <string name="bt1" translatable="false">1</string>
+    <string name="bt2" translatable="false">2</string>
+    <string name="bt3" translatable="false">3</string>
+    <string name="bt4" translatable="false">4</string>
+    <string name="bt5" translatable="false">5</string>
+    <string name="bt6" translatable="false">6</string>
+    <string name="bt7" translatable="false">7</string>
+    <string name="bt8" translatable="false">8</string>
+    <string name="bt9" translatable="false">9</string>
+    <string name="btclear">C</string>
+    <string name="btsubmit">OK</string>
+    <string name="equal_symbol" translatable="false">=</string>
+    <string name="question_symbol" translatable="false">\?</string>
+    <string name="current_score">Score:%d</string>
+    <string name="input_indicator">Your Answer:</string>
+    <string name="lose_image_info">lose</string>
+    <string name="win_image_info">win</string>
+    <string name="win_message">You win!</string>
+    <string name="win_score_message">New record:%d</string>
+    <string name="lose_message">You lose!</string>
+    <string name="lose_score_message">Your score:%d</string>
+    <string name="button_back_to_title">Back</string>
+    <string name="answer_correct_message">Correct!Go On!</string>
+    <string name="quit_dialog">Are you sure to quit?</string>
+    <string name="dialog_positive_message">OK</string>
+    <string name="dialog_negative_message">Cancel</string>
+    <string name="title_nav_message">Welcome</string>
+    <string name="question_nav_message">Testing</string>
+    <string name="win_nav_message">Win</string>
+    <string name="lose_nav_message">Lose</string>
+
+</resources>
