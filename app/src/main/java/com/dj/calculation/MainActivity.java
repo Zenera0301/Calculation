@@ -20,14 +20,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        myViewModel = ViewModelProviders.of(this,new SavedStateViewModelFactory(getApplication(),this)).get(MyViewModel.class);
+        myViewModel = ViewModelProviders.of(this, new SavedStateViewModelFactory(getApplication(),this)).get(MyViewModel.class);
         controller = Navigation.findNavController(this, R.id.fragment2);
         NavigationUI.setupActionBarWithNavController(this, controller);
     }
 
+    // test
     @Override
     public boolean onSupportNavigateUp() {
-        if(controller.getCurrentDestination().getId() == R.id.questionFragment){
+        if(controller.getCurrentDestination().getId() == R.id.questionFragment) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(getString(R.string.quit_dialog));
             builder.setPositiveButton(R.string.dialog_positive_message, new DialogInterface.OnClickListener() {

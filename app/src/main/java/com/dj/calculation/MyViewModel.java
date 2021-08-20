@@ -21,10 +21,10 @@ public class MyViewModel extends AndroidViewModel {
     private static String SAVE_SHP_DATA_NAME = "save_shp_data_name";
     private static String KEY_CURRENT_SCORE = "key_current_score";
     static boolean winFlag = false;
+
     public MyViewModel(@NonNull Application application, SavedStateHandle handle) {
         super(application);
-
-        if(!handle.contains(KEY_HIGH_SCORE)){
+        if (!handle.contains(KEY_HIGH_SCORE)) {
             SharedPreferences shp = getApplication().getSharedPreferences(SAVE_SHP_DATA_NAME, Context.MODE_PRIVATE);
             handle.set(KEY_HIGH_SCORE, shp.getInt(KEY_HIGH_SCORE, 0));
             handle.set(KEY_LEFT_NUMBER, 0);
@@ -36,59 +36,59 @@ public class MyViewModel extends AndroidViewModel {
         this.handle = handle;
     }
 
-    public MutableLiveData<Integer> getLeftNumber(){
+    public MutableLiveData<Integer> getLeftNumber() {
         return handle.getLiveData(KEY_LEFT_NUMBER);
     }
 
-    public MutableLiveData<Integer> getRightNumber(){
+    public MutableLiveData<Integer> getRightNumber() {
         return handle.getLiveData(KEY_RIGHT_NUMBER);
     }
 
-    public MutableLiveData<String> getOperator(){
+    public MutableLiveData<String> getOperator() {
         return handle.getLiveData(KEY_OPERATOR);
     }
 
-    public MutableLiveData<Integer> getHighScore(){
+    public MutableLiveData<Integer> getHighScore() {
         return handle.getLiveData(KEY_HIGH_SCORE);
     }
 
-    public MutableLiveData<Integer> getCurrentScore(){
+    public MutableLiveData<Integer> getCurrentScore() {
         return handle.getLiveData(KEY_CURRENT_SCORE);
     }
 
-    public MutableLiveData<Integer> getAnswer(){
+    public MutableLiveData<Integer> getAnswer() {
         return handle.getLiveData(KEY_ANSWER);
     }
 
     /**
      * 产生一道题目
      */
-    public void generator(){
+    public void generator() {
         int level = 20;
         Random random = new Random();
         int x, y;
         x = random.nextInt(level) + 1; // [0，20) + 1
         y = random.nextInt(level) + 1; // [0，20) + 1
-        if(x % 2 == 0){
+        if (x % 2 == 0) {
             getOperator().setValue("+");
-            if(x > y){
+            if (x > y) {
                 getAnswer().setValue(x);
                 getLeftNumber().setValue(y);
-                getRightNumber().setValue(x-y);
-            }else{
+                getRightNumber().setValue(x - y);
+            } else {
                 getAnswer().setValue(y);
                 getLeftNumber().setValue(x);
-                getRightNumber().setValue(y-x);
+                getRightNumber().setValue(y - x);
             }
 
-        }else{
+        } else {
             getOperator().setValue("-");
-            if(x > y){
-                getAnswer().setValue(x-y);
+            if (x > y) {
+                getAnswer().setValue(x - y);
                 getLeftNumber().setValue(x);
                 getRightNumber().setValue(y);
-            }else{
-                getAnswer().setValue(y-x);
+            } else {
+                getAnswer().setValue(y - x);
                 getLeftNumber().setValue(y);
                 getRightNumber().setValue(x);
             }
@@ -98,7 +98,7 @@ public class MyViewModel extends AndroidViewModel {
     /**
      * 保存最高分
      */
-    public void save(){
+    public void save() {
         SharedPreferences shp = getApplication().getSharedPreferences(SAVE_SHP_DATA_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = shp.edit();
         editor.putInt(KEY_HIGH_SCORE, getHighScore().getValue());
@@ -108,9 +108,9 @@ public class MyViewModel extends AndroidViewModel {
     /**
      * 回答正确
      */
-    public void answerCorrect(){
+    public void answerCorrect() {
         getCurrentScore().setValue(getCurrentScore().getValue() + 1);
-        if(getCurrentScore().getValue() > getHighScore().getValue()){
+        if (getCurrentScore().getValue() > getHighScore().getValue()) {
             getHighScore().setValue(getCurrentScore().getValue());
             winFlag = true;
         }

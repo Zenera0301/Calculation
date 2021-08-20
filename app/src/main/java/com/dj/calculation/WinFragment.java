@@ -40,8 +40,6 @@ public class WinFragment extends Fragment {
         });
         return binding.getRoot();
 
-
-
-        //return inflater.inflate(R.layout.fragment_win, container, false);
+        // return inflater.inflate(R.layout.fragment_win, container, false);
     }
 }

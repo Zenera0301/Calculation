@@ -101,17 +101,17 @@ public class QuestionFragment extends Fragment {
                 if (sb.length() == 0) {
                     sb.append("-1");
                 }
-                if(Integer.valueOf(sb.toString()).intValue() == myViewModel.getAnswer().getValue()){
+                if(Integer.valueOf(sb.toString()).intValue() == myViewModel.getAnswer().getValue()) {
                     myViewModel.answerCorrect();
                     sb.setLength(0);
                     binding.textView9.setText(R.string.answer_correct_message);
-                }else{
+                } else {
                     NavController controller = Navigation.findNavController(v);
-                    if(myViewModel.winFlag){
+                    if(MyViewModel.winFlag) {
                         controller.navigate(R.id.action_questionFragment_to_winFragment);
-                        myViewModel.winFlag = false;
+                        MyViewModel.winFlag = false;
                         myViewModel.save();
-                    }else{
+                    } else {
                         controller.navigate(R.id.action_questionFragment_to_loseFragment);
                     }
                 }
